@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-light shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><span class="text-primary fs-1">Gid</span><span
+                class="text-danger display-6 fst-italic">Blog</span> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'articles' %}">Blog Articles</a>
+                </li>
+            </ul>
+            <div>
+                {% if user.is_authenticated %}
+
+                <form class="d-flex" action="/accounts/logout/" method="post">
+
+                    {% csrf_token %}
+                    <a href="{% url 'blog' %}" class="btn btn-outline-info px-4 mx-3">New Blog</a>
+                    <button class="btn btn-outline-secondary px-4 py-2" type="submit">Logout</button>
+
+                </form>
+                {% else %}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class=" p-2 btn btn-outline-secondary px-4" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="p-2 btn btn-outline-secondary px-4 mx-2" href="{% url 'signup' %}">Sign Up</a>
+                    </li>
+                </ul>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</nav>

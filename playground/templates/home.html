@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div class="">
+    <div>
+
+        <div class="card text-bg-dark text-center" style="height: 100%;">
+            <img src="{% static 'guide.png' %}" class="card-img" alt="..." style=" width: 100%;">
+            <div class="card-img-overlay lead">
+                <h5 class="card-title display-4">Welcome My Blog</h5>
+                <br><br>
+                <p class="card-text">This is <span>GidBlog</span>.Here are my blogs</p>
+                <br>
+                <p class="card-text"> <a class="px-4 text-decoration-none btn btn-outline-warning" href="{% url 'articles' %}">Visit Blogs</a> </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

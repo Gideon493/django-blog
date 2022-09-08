@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Member Details{% endblock title %}
+
+{% block content %}
+<div class="lead container p-5">
+    <div>
+
+        <p>
+            <img src="{{ member.photo.url  }}" alt="" style=" width:10rem; height: 10rem; border-radius :50%;
+            ">
+            <br>
+        <h3 class="display-6">{{member.firstname}} {{member.lastname}}</h3>
+        <br>
+        Date of Birth: {{member.dob}}
+        <br>
+        ID Number: {{member.idnumber}}
+        </p>
+        <a href="{% url 'members' %}" class="btn btn-secondary w-25">Back</a>
+    </div>
+</div>
+
+{% endblock content %}

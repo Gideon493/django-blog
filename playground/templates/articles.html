@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+Articles
+
+{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <div class="lead">
+        
+
+        {% for article in articles %}
+        <div class="container">
+            <!--<img class="p-3" style="height:70%; width: 90%;" src="{{ article.photo.url }}" alt="">-->
+            <a href="{% url 'article' article.title %}" class="display-6 text-decoration-none text-info">
+                {{article.id}}. {{article.title}}
+            </a>
+            <br>
+            {{article.date}}
+            <br>
+            {{article.author}}
+
+
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+</div>
+
+{% endblock content %}

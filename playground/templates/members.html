@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Members {% endblock title %}
+{% block content %}
+<div class="lead container">
+    <div class="">
+        <h1 class="display-5">Members</h1>
+        <div class="row">
+            {% for x in mymembers %}
+            <div class="col-4">
+                <div class="card p-4 m-3 w-75 border-0">
+                    <p>
+                        <img src="{{ x.photo.url  }}" alt="" class="p-3" style=" width:10rem; height: 10rem; border-radius :50%;">
+                        <br>
+                        <a href="{% url 'member' x.firstname %}"
+                            class="text-decoration-none text-secondary p-2">{{x.firstname}}
+                            {{x.lastname}}</a>
+                    </p>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}
